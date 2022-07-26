@@ -1,7 +1,7 @@
-import smtplib, ssl 
+import smtplib, ssl, os
 
 sender = 'ic3squid@gmail.com'
-password = 'APP PASSWORD GOES HERE'
+password = os.getenv("APP_PASS")
 receiver = 'hmahmood2351@gmail.com'
 
 body_msg = '''Subject: test
@@ -14,4 +14,4 @@ with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as server:
     server.sendmail(sender, receiver, body_msg)
     
 #references: 
-#https://www.youtube.com/watch?v=Dg8L5t3kdAU, 
+#https://www.youtube.com/watch?v=Dg8L5t3kdAU, gmail account settings under security > app password
